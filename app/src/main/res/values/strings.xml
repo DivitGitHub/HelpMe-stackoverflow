@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">HelpMe-stackoverflow</string>
+    <string name="search_title">Search</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="start_search_now">Start searching now!</string>
+    <string name="coudnt_fetch_data">Couldn\'t fetch data</string>
+</resources>
