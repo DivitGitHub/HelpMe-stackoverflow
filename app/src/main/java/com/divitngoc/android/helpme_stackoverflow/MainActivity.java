@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * RxJava2 network call
+     * RxJava2
      * Add data to list and populate the recycler view
      */
     private void fetchData() {
