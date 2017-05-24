@@ -123,9 +123,10 @@ public class MainActivity extends AppCompatActivity {
                 //hides empty_view
                 emptyView.setVisibility(GONE);
 
-                // Shows load the loading indicator after query is submitted
+                // Shows loading indicator(progressbar) after query is submitted
                 loadingIndicator.setVisibility(View.VISIBLE);
 
+                // fetches and displays data
                 fetchData();
                 return false;
             }
@@ -156,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
      * Add data to list and populate the recycler view
      */
     private void fetchData() {
-        data.clear(); // clearing any previous data
+        data.clear(); // clears any previous data
         stackOverFlowAPI.getQuestionsRx(userQuery).subscribeOn(Schedulers.io()) // Set up async background thread
                 .observeOn(AndroidSchedulers.mainThread()) // Delivers to mainthread
                 .subscribe(new DisposableObserver<ListWrapper>() {
@@ -178,10 +179,5 @@ public class MainActivity extends AppCompatActivity {
                         dispose(); // Free up memory since we already displayed the data through our data ArrayList
                     }
                 });
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
     }
 }
