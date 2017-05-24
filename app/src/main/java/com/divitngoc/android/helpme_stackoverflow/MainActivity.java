@@ -68,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(customRecyclerAdapter);
     }
 
-
     /**
      * Retrofit2 network call
      */
