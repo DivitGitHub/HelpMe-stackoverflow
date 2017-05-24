@@ -68,25 +68,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(customRecyclerAdapter);
     }
 
-    /**
-     * Retrofit2 network call
-     */
-//    Callback<ListWrapper> questionsCallback = new Callback<ListWrapper>() {
-//        @Override
-//        public void onResponse(Call<ListWrapper> call, Response<ListWrapper> response) {
-//            if (response.isSuccessful()) {
-//                data = new ArrayList<>();
-//                data.addAll(response.body().getItems());
-//                recyclerView.setAdapter(new CustomRecyclerAdapter(MainActivity.this, data));
-//            }
-//            loadingIndicator.setVisibility(GONE);
-//        }
-//
-//        @Override
-//        public void onFailure(Call<ListWrapper> call, Throwable t) {
-//            t.printStackTrace();
-//        }
-//    };
     private StackOverFlowAPI createStackOverFlowAPI() {
         Gson gson = new GsonBuilder()
                 .create();
