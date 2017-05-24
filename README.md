@@ -2,10 +2,10 @@
 ## Android
 ### Personal project
 
-I wanted to explore and learn more technologies which is the reason I created this test application.
+I wanted to explore and advance my technical knowledge which is the reason why I created this simple test application.
 This application waits for the user query(questions) and then "fetch" data from the api and displays a list.
 When list is clicked on, it redirects the user to the site with the answers.
-I've used stackoverflow api, RxJava, Retrofit, ButterKnife and Gson converter, RecyclerView and CardView for this application.
+I've used stackoverflow API, RxJava, Retrofit, ButterKnife and Gson converter, RecyclerView and CardView for this application.
 
 
 Starting screen:
