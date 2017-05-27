@@ -156,7 +156,6 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete() {
                         loadingIndicator.setVisibility(GONE); // hides loading indicator after data is fetched
                         recyclerView.setAdapter(customRecyclerAdapter); // display data
-                        dispose(); // Free up memory since we already displayed the data through our data ArrayList
                     }
                 });
     }
