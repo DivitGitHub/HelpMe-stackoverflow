@@ -46,8 +46,6 @@ public class CustomRecyclerAdapter extends RecyclerView.Adapter<CustomRecyclerAd
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-        //Check if the existing view is being reused, otherwise inflate the view
         View listItemView = LayoutInflater.from(parent.getContext()).inflate(
                 R.layout.list_item, parent, false);
         ViewHolder vh = new ViewHolder(listItemView);
