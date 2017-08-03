@@ -68,26 +68,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(customRecyclerAdapter);
     }
 
-
-    /**
-     * Retrofit2 network call
-     */
-//    Callback<ListWrapper> questionsCallback = new Callback<ListWrapper>() {
-//        @Override
-//        public void onResponse(Call<ListWrapper> call, Response<ListWrapper> response) {
-//            if (response.isSuccessful()) {
-//                data = new ArrayList<>();
-//                data.addAll(response.body().getItems());
-//                recyclerView.setAdapter(new CustomRecyclerAdapter(MainActivity.this, data));
-//            }
-//            loadingIndicator.setVisibility(GONE);
-//        }
-//
-//        @Override
-//        public void onFailure(Call<ListWrapper> call, Throwable t) {
-//            t.printStackTrace();
-//        }
-//    };
     private StackOverFlowAPI createStackOverFlowAPI() {
         Gson gson = new GsonBuilder()
                 .create();
@@ -123,9 +103,10 @@ public class MainActivity extends AppCompatActivity {
                 //hides empty_view
                 emptyView.setVisibility(GONE);
 
-                // Shows load the loading indicator after query is submitted
+                // Shows loading indicator(progressbar) after query is submitted
                 loadingIndicator.setVisibility(View.VISIBLE);
 
+                // fetches and displays data
                 fetchData();
                 return false;
             }
@@ -152,11 +133,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * RxJava2 network call
+     * RxJava2
      * Add data to list and populate the recycler view
      */
     private void fetchData() {
-        data.clear(); // clearing any previous data
+        data.clear(); // clears any previous data
         stackOverFlowAPI.getQuestionsRx(userQuery).subscribeOn(Schedulers.io()) // Set up async background thread
                 .observeOn(AndroidSchedulers.mainThread()) // Delivers to mainthread
                 .subscribe(new DisposableObserver<ListWrapper>() {
@@ -175,13 +156,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete() {
                         loadingIndicator.setVisibility(GONE); // hides loading indicator after data is fetched
                         recyclerView.setAdapter(customRecyclerAdapter); // display data
-                        dispose(); // Free up memory since we already displayed the data through our data ArrayList
                     }
                 });
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
     }
 }

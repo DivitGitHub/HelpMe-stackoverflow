@@ -9,9 +9,7 @@ import retrofit2.http.Query;
 
 public interface StackOverFlowAPI {
 
-//    @GET("/2.2/search?order=desc&pagesize=15&sort=relevance&site=stackoverflow")
-//    Call<ListWrapper> getQuestions(@Query("intitle") String parameter);
-
+    // url would be (BASE_URL + "/2.2/search?order=desc&pagesize=15&sort=relevance&site=stackoverflow")
     @GET("/2.2/search?order=desc&pagesize=15&sort=relevance&site=stackoverflow")
     Observable<ListWrapper> getQuestionsRx(@Query("intitle") String parameter);
 }
